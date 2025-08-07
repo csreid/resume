@@ -1,0 +1,131 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{vwcol}
+\usepackage{tikz}
+
+\usepackage{paracol}
+
+% Remove page numbers
+\pagestyle{empty}
+
+\setlength{\parindent}{0pt}
+
+% Define section formatting
+\titleformat{\section}{\large\bfseries\uppercase}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{12pt}{6pt}
+
+% Define subsection formatting for job titles
+\titleformat{\subsection}{\normalsize\bfseries}{}{0em}{}
+\titlespacing{\subsection}{0pt}{8pt}{2pt}
+
+% Remove default list formatting
+\setlist[itemize]{leftmargin=0pt, itemsep=2pt, parsep=0pt, topsep=4pt}
+
+\newcommand{\street}{5710 N Winthrop Ave}
+\newcommand{\city}{Chicago}
+\newcommand{\state}{IL}
+\newcommand{\zip}{60660}
+\newcommand{\phone}{(219) 208-0068}
+\newcommand{\email}{csreid.cr@gmail.com}
+
+\newcommand{\makeaddress}{%
+	\street \\
+	\city, \state \zip \\
+	\phone \\
+	\email
+}
+
+\newcommand{\job}[4]{%
+	\subsection{#1 --- #2}
+	\textit{#3}
+
+	#4
+
+	\vspace{0.1in}
+}
+
+\begin{document}
+
+% Name header
+\begin{flushright}
+{\huge\bfseries{Cameron Reid}}\\
+\makeaddress
+\end{flushright}
+
+\columnratio{0.6}
+\setlength\columnsep{30pt}
+\begin{paracol}{2}
+
+\section{Experience}
+
+	\job{Jacobian Labs}{Founder/Principal Engineer}{June 2023 - Present}{Founded consulting practice focused on building reliable, robust software systems for clients across diverse industries, specializing in machine learning and scalable architecture.}
+
+	\job{Klaviyo}{Senior Software Engineer}{June 2022 - June 2023}{Klaviyo ingests a huge amount of data from various e-commerce integrations. My team and I were responsible for reliably and efficiently managing that huge stream of incoming data.}
+
+	\job{Sense}{Senior Software Engineer}{February 2021 - June 2022}{Working on the chatbot team, I helped guide the development of Sense's primary AI product to provide a conversational AI assistant using deep learning NLU techniques.}
+
+	\job{Kerauno}{Principal Software Engineer}{September 2018 - November 2019}{I helped guide a team of engineers to build the backbone of Kerauno's next-generation communications workflow platform using modern best practices, including robust relational data modeling in PostgreSQL and Golang microservices orchestrated with Kubernetes.}
+
+	\job{Torchlite}{Senior Platform Engineer}{December 2015 - September 2018}{I served as a founding member of the engineering team at a very small startup, handling all of the back-end architecture and implementation.}
+
+	\job{Emerging Threats / Proofpoint}{Software Engineer}{July 2014 - December 2015}{I joined Emerging Threats, an Indianapolis cybersecurity startup, and immediately became interested in the problems of robustly managing big data.}
+
+\switchcolumn
+
+\section{Tools}
+
+	Expert with \textbf{Docker, Kubernetes}, and other containerization technologies
+
+	\vspace{0.1in}
+
+	Expert level knowledge of \textbf{PostgreSQL} specifically and relational database systems generally.
+
+	\vspace{0.1in}
+
+	Experience using \textbf{PyTorch, TensorFlow, Keras}, and other machine learning frameworks.
+
+	\vspace{0.1in}
+
+	Technical polyglot with professional expertise in many languages including Python, Java(/Type)Script, Scala, Rust, Ruby, Go and more
+
+	\vspace{0.1in}
+	Extensive experience with \textbf{AWS, Azure, and GCP} cloud computing platforms.
+
+\vspace{0.2in}
+
+\section{Notable Work}
+
+\textbf{Chatbot V2} is a successor to the Sense chatbot that is more scalable, more maintainable, and more stable than its predecessor, allowing Sense to feel confident selling AI in a demanding market.
+
+\vspace{0.1in}
+
+\textbf{Mutual Reinforcement Learning} is the result of research into novel multi-agent machine learning algorithms
+
+\vspace{0.1in}
+
+\textbf{Kerauno Event Engine:} The high-throughput, fault-tolerant, distributed event reactor at the heart of the Kerauno communication orchestration platform.
+
+\vspace{0.2in}
+
+\section{Education}
+
+\textbf{University of Illinois, Chicago} \\
+Ph.D.: 2024-present
+
+\vspace{0.1in}
+
+\textbf{Purdue University, Indianapolis} \\
+M.Sc. May 2021
+
+\vspace{0.1in}
+
+\textbf{Purdue University, West Lafayette} \\
+	BS May 2014
+
+\end{paracol}
+
+\end{document}
