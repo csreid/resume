@@ -1,0 +1,149 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{etoolbox}
+
+% Remove page numbers
+\pagestyle{empty}
+
+\setlength{\parindent}{0pt}
+
+% Define section formatting
+\titleformat{\section}{\large\bfseries\uppercase}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{12pt}{6pt}
+
+% Define subsection formatting
+\titleformat{\subsection}{\normalsize\bfseries}{}{0em}{}
+\titlespacing{\subsection}{0pt}{8pt}{2pt}
+
+% Remove default list formatting
+\setlist[itemize]{leftmargin=0pt, itemsep=2pt, parsep=0pt, topsep=4pt}
+\setlist[enumerate]{leftmargin=1.5em, itemsep=4pt, parsep=0pt, topsep=4pt}
+
+% Contact information commands
+\newcommand{\street}{5710 N Winthrop Ave}
+\newcommand{\city}{Chicago}
+\newcommand{\state}{IL}
+\newcommand{\zip}{60660}
+\newcommand{\phone}{(219) 208-0068}
+\newcommand{\email}{csreid.cr@gmail.com}
+
+\newcommand{\makeaddress}{%
+	\street, \city, \state \zip \\
+	\phone\ $\cdot$ \email
+}
+
+% Publication list infrastructure
+\newcounter{pubcount}
+\setcounter{pubcount}{0}
+\newcommand{\publist}{}
+
+% \publication command
+% Usage: \publication{Authors}{Title}{Venue}{Year}{Citations}
+\newcommand{\publication}[5]{%
+	\stepcounter{pubcount}%
+	\expandafter\gappto\expandafter\publist\expandafter{%
+		\noexpand\item \textbf{#2} \\
+		#1 \\
+		\textit{#3}, #4 \ifx&#5&\else\ \fi
+	}%
+}
+
+% \makepublications command
+\newcommand{\makepublications}{%
+	\begin{enumerate}[label={[\arabic*]}, leftmargin=2em]
+		\publist
+	\end{enumerate}
+}
+
+% Job entry command
+\newcommand{\job}[4]{%
+	\subsection{#1 --- #2}
+	\textit{#3}
+
+	#4
+
+	\vspace{0.1in}
+}
+
+% Education entry command
+\newcommand{\education}[4]{%
+	\textbf{#1} \\
+	#2 \hfill #3 \\
+	#4
+	\vspace{0.1in}
+}
+
+% Add publications here
+\publication{C Reid, W Hafez, A Nazeri}{Mutual Information Tracks Policy Coherence in Reinforcement Learning}{arXiv preprint arXiv:2509.10423}{2025}
+
+\publication{W Hafez, A Nazeri, C Reid, S Eshami}{Entanglement Learning: an Information-Theoretic Framework for Adaptive Convolutional Neural Networks}{2025 IEEE Conference on Artificial Intelligence (CAI)}{2025}
+
+\publication{C Reid, S Mukhopadhyay}{Mutual reinforcement learning with heterogeneous agents}{2021 IEEE International Conference on Smart Computing (SMARTCOMP)}{2021}
+
+\publication{C Reid, S Mukhopadhyay}{Mutual Q-learning}{2020 3rd International Conference on Control and Robots (ICCR)}{2020}
+
+\publication{C Reid}{Mutual Reinforcement Learning}{Purdue University}{2021}
+
+\publication{C Reid}{Student/Teacher Advising through Reward Augmentation}{arXiv preprint arXiv:2002.02938}{2020}
+
+\begin{document}
+
+% Name header
+\begin{center}
+{\huge\bfseries{Cameron Reid}}\\[0.1in]
+\makeaddress
+\end{center}
+
+\section{Education}
+
+\education{University of Illinois Chicago}{Ph.D. in Computer Science (in progress)}{2024 -- Present}{Advisor: Professor Wenhao Luo}
+
+\education{Purdue University, Indianapolis}{M.Sc. in Computer Science}{May 2021}{Thesis: Mutual Reinforcement Learning}
+
+\education{Purdue University, West Lafayette}{B.S. in Computer Science}{May 2014}{}
+
+\section{Research Interests}
+
+Mobile robotics, end-to-end deep learning control systems, multi-agent reinforcement learning, intelligent systems, machine learning for robotics
+
+\section{Publications}
+
+\makepublications
+
+\section{Professional Experience}
+
+\job{Jacobian Labs}{Founder/Principal Engineer}{June 2023 -- Present}{Founded consulting practice focused on building reliable, robust software systems for clients across diverse industries, specializing in machine learning and scalable architecture.}
+
+\job{Klaviyo}{Senior Software Engineer}{June 2022 -- June 2023}{Led development of high-throughput data ingestion systems managing large-scale streams from e-commerce integrations, ensuring reliability and efficiency in processing millions of events.}
+
+\job{Sense}{Senior Software Engineer}{February 2021 -- June 2022}{Guided development of conversational AI assistant using deep learning NLU techniques as part of the chatbot team, delivering Sense's primary AI product to market.}
+
+\job{Kerauno}{Principal Software Engineer}{September 2018 -- November 2019}{Led engineering team in building next-generation communications workflow platform using modern best practices, including PostgreSQL relational data modeling and Golang microservices orchestrated with Kubernetes.}
+
+\job{Torchlite}{Senior Platform Engineer}{December 2015 -- September 2018}{Served as founding member of engineering team, architecting and implementing all back-end infrastructure for early-stage startup.}
+
+\job{Emerging Threats / Proofpoint}{Software Engineer}{July 2014 -- December 2015}{Developed robust big data management solutions for cybersecurity threat detection systems.}
+
+\section{Technical Skills}
+
+\textbf{Machine Learning:} PyTorch, TensorFlow, Keras, reinforcement learning frameworks \\[0.05in]
+\textbf{Cloud \& Infrastructure:} AWS, Azure, GCP, Docker, Kubernetes \\[0.05in]
+\textbf{Databases:} PostgreSQL (expert level), distributed database systems \\[0.05in]
+\textbf{Programming Languages:} Python, JavaScript/TypeScript, Scala, Rust, Ruby, Go, Java
+
+\section{Selected Projects}
+
+\textbf{Chatbot V2:} Designed and implemented successor to Sense chatbot with improved scalability, maintainability, and stability, enabling confident deployment in demanding enterprise markets.
+
+\vspace{0.1in}
+
+\textbf{Mutual Reinforcement Learning:} Conducted research into novel multi-agent machine learning algorithms, resulting in multiple peer-reviewed publications.
+
+\vspace{0.1in}
+
+\textbf{Kerauno Event Engine:} Architected high-throughput, fault-tolerant, distributed event reactor serving as the core of Kerauno's communication orchestration platform.
+
+\end{document}
