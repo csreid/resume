@@ -1,0 +1,61 @@
+% Contact information commands
+\newcommand{\street}{5710 N Winthrop Ave}
+\newcommand{\city}{Chicago}
+\newcommand{\state}{IL}
+\newcommand{\zip}{60660}
+\newcommand{\phone}{(219) 208-0068}
+\newcommand{\email}{csreid.cr@gmail.com}
+
+\newcommand{\publist}{}
+\newcommand{\edlist}{}
+\newcounter{pubcount}
+\setcounter{pubcount}{0}
+\newcounter{edcount}
+\setcounter{edcount}{0}
+
+% \publication command
+% Usage: \publication{Authors}{Title}{Venue}{Year}{Citations}
+%\newcommand{\publication}[5]{%
+%	\stepcounter{pubcount}%
+%	\expandafter\gappto\expandafter\publist\expandafter{%
+%		\noexpand\item \textbf{#2} \\
+%		#1 \\
+%		\textit{#3}, #4 \ifx&#5&\else\ \fi
+%	}%
+%}
+
+\newcommand{\publication}[4]{%
+	\stepcounter{pubcount}%
+	\expandafter\gappto\expandafter\publist\expandafter{%
+		\noexpand\makepublication{#1}{#2}{#3}{#4}%
+	}%
+}
+
+\newcommand{\education}[4]{%
+	\stepcounter{edcount}%
+	\expandafter\gappto\expandafter\edlist\expandafter{%
+		\noexpand\makeeducation{#1}{#2}{#3}{#4}%
+	}%
+}
+
+
+% \education command
+% Usage: \education{university}{degree}{completion year}
+%\newcommand{\education}[3]{%
+%	\stepcounter{edcount}%
+%	\expandafter\gappto\expandafter\edlist\expandafter{%
+%		\noexpand\item \textbf{#1} - \textit{#2} (#3)%
+%	}%
+%}
+
+% Publications
+\publication{C Reid, W Hafez, A Nazeri}{Mutual Information Tracks Policy Coherence in Reinforcement Learning}{arXiv preprint arXiv:2509.10423}{2025}
+\publication{W Hafez, A Nazeri, C Reid, S Eshami}{Entanglement Learning: an Information-Theoretic Framework for Adaptive Convolutional Neural Networks}{2025 IEEE Conference on Artificial Intelligence (CAI)}{2025}
+\publication{C Reid, S Mukhopadhyay}{Mutual reinforcement learning with heterogeneous agents}{2021 IEEE International Conference on Smart Computing (SMARTCOMP)}{2021}
+\publication{C Reid, S Mukhopadhyay}{Mutual Q-learning}{2020 3rd International Conference on Control and Robots (ICCR)}{2020}
+\publication{C Reid}{Mutual Reinforcement Learning}{Purdue University}{2021}
+\publication{C Reid}{Student/Teacher Advising through Reward Augmentation}{arXiv preprint arXiv:2002.02938}{2020}
+
+\education{University of Illinois Chicago}{Ph.D. in Computer Science (in progress)}{2024 -- Present}{Advisor: Professor Wenhao Luo}
+\education{Purdue University, Indianapolis}{M.Sc. in Computer Science}{May 2021}{Thesis: Mutual Reinforcement Learning}
+\education{Purdue University, West Lafayette}{B.S. in Computer Science}{May 2014}{}

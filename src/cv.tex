@@ -5,6 +5,7 @@
 \usepackage{xcolor}
 \usepackage{etoolbox}
 
+
 % Remove page numbers
 \pagestyle{empty}
 
@@ -22,40 +23,9 @@
 \setlist[itemize]{leftmargin=0pt, itemsep=2pt, parsep=0pt, topsep=4pt}
 \setlist[enumerate]{leftmargin=1.5em, itemsep=4pt, parsep=0pt, topsep=4pt}
 
-% Contact information commands
-\newcommand{\street}{5710 N Winthrop Ave}
-\newcommand{\city}{Chicago}
-\newcommand{\state}{IL}
-\newcommand{\zip}{60660}
-\newcommand{\phone}{(219) 208-0068}
-\newcommand{\email}{csreid.cr@gmail.com}
-
 \newcommand{\makeaddress}{%
 	\street, \city, \state \zip \\
 	\phone\ $\cdot$ \email
-}
-
-% Publication list infrastructure
-\newcounter{pubcount}
-\setcounter{pubcount}{0}
-\newcommand{\publist}{}
-
-% \publication command
-% Usage: \publication{Authors}{Title}{Venue}{Year}{Citations}
-\newcommand{\publication}[5]{%
-	\stepcounter{pubcount}%
-	\expandafter\gappto\expandafter\publist\expandafter{%
-		\noexpand\item \textbf{#2} \\
-		#1 \\
-		\textit{#3}, #4 \ifx&#5&\else\ \fi
-	}%
-}
-
-% \makepublications command
-\newcommand{\makepublications}{%
-	\begin{enumerate}[label={[\arabic*]}, leftmargin=2em]
-		\publist
-	\end{enumerate}
 }
 
 % Job entry command
@@ -68,28 +38,38 @@
 	\vspace{0.1in}
 }
 
-% Education entry command
-\newcommand{\education}[4]{%
-	\textbf{#1} \\
+% Education looks like...
+\newcommand{\makeeducation}[4]{%
+	\item \textbf{#1} \\
 	#2 \hfill #3 \\
 	#4
 	\vspace{0.1in}
 }
 
-% Add publications here
-\publication{C Reid, W Hafez, A Nazeri}{Mutual Information Tracks Policy Coherence in Reinforcement Learning}{arXiv preprint arXiv:2509.10423}{2025}
+% Publications look like...
+\newcommand{\makepublication}[4]{%
+	\item \textbf{#2} \\
+		#1 \\
+		\textit{#3}, #4%
+}%
 
-\publication{W Hafez, A Nazeri, C Reid, S Eshami}{Entanglement Learning: an Information-Theoretic Framework for Adaptive Convolutional Neural Networks}{2025 IEEE Conference on Artificial Intelligence (CAI)}{2025}
+% \makepublications command
+\newcommand{\makepublications}{%
+	\begin{enumerate} [label={[\arabic*]}, leftmargin=2em]
+		\publist
+	\end{enumerate}
+}
 
-\publication{C Reid, S Mukhopadhyay}{Mutual reinforcement learning with heterogeneous agents}{2021 IEEE International Conference on Smart Computing (SMARTCOMP)}{2021}
+\newcommand{\makeeducations}{%
+	\begin{enumerate} [label={[\arabic*]}, leftmargin=2em]
+		\edlist
+	\end{enumerate}
+}
 
-\publication{C Reid, S Mukhopadhyay}{Mutual Q-learning}{2020 3rd International Conference on Control and Robots (ICCR)}{2020}
-
-\publication{C Reid}{Mutual Reinforcement Learning}{Purdue University}{2021}
-
-\publication{C Reid}{Student/Teacher Advising through Reward Augmentation}{arXiv preprint arXiv:2002.02938}{2020}
 
 \begin{document}
+
+\input{src/resumedata.tex}
 
 % Name header
 \begin{center}
@@ -99,11 +79,7 @@
 
 \section{Education}
 
-\education{University of Illinois Chicago}{Ph.D. in Computer Science (in progress)}{2024 -- Present}{Advisor: Professor Wenhao Luo}
-
-\education{Purdue University, Indianapolis}{M.Sc. in Computer Science}{May 2021}{Thesis: Mutual Reinforcement Learning}
-
-\education{Purdue University, West Lafayette}{B.S. in Computer Science}{May 2014}{}
+\makeeducations
 
 \section{Research Interests}
 
